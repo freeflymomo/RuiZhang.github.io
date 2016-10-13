@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+	*{ margin: 0;position: 0;}
+	.box{ width:480px; height: 294px; background-size: 100%; margin:50px auto; position: relative;}
+	.box span{ position: absolute; transform-style: preserve-3d; transition: 1s all ease;  transform: perspective(800px) rotateY(0deg);}
+
+	.box em{ width: 100%; height: 100%; background: url(../img/img1/0.jpg); position: absolute; backface-visibility:hidden; z-index: 2;}
+	.box i{ width: 100%; height: 100%; background: url(../img/img1/1.jpg); position: absolute; z-index: 1; transform: scale(-1,1);}
+	</style>
+	<script>
+		window.onload=function(){
+			var oBox=document.querySelector('.box');
+
+			var R=4;
+			var C=7;
+
+			for(var r=0; r<R;r++){
+				for(var c=0; c<C; c++){
+					var aSpan=document.createElement('span');
+					aSpan.innerHTML='<em></em><i></i>';
+					var w=parseInt(oBox.offsetWidth/C);
+					var h=parseInt(oBox.offsetHeight/R);
+					aSpan.style.width=w+'px';
+					aSpan.style.height=h+'px';
+
+					oBox.appendChild(aSpan);
+					aSpan.style.left=w*c+'px';
+					aSpan.style.top=h*r+'px';
+
+					var aEm=aSpan.children[0];
+					var aI=aSpan.children[1];
+					aEm.style.backgroundPosition=-w*c+'px -'+h*r+'px';
+					aI.style.backgroundPosition=-w*c+'px -'+h*r+'px';
+
+					aSpan.r=r;
+					aSpan.c=c;
+				}
+			}
+
+			var aSpan=oBox.children;
+			var iNow=0;
+			oBox.onclick=function(){
+				for(var i=0; i<aSpan.length; i++){
+					aSpan[i].style.transition='1s all ease '+(aSpan[i].c+aSpan[i].r)*100+'ms';
+					aSpan[i].style.transform='perspective(800px) rotateY(180deg)';
+				}
+			};
+
+			aSpan[aSpan.length-1].addEventListener('transitionend',function(){
+				iNow++;
+				for(var i=0; i<aSpan.length;i++){
+					aSpan[i].style.transition='none';
+					aSpan[i].style.transform='perspective(800px) rotateY(0deg)';
+					aSpan[i].children[0].style.backgroundImage='url(../img/img1/'+iNow%8+'.jpg)';
+					aSpan[i].children[1].style.backgroundImage='url(../img/img1/'+(iNow+1)%8+'.jpg)';
+				}
+
+			},false);
+		}
+	</script>
+</head>
+<body>
+<div class="box">
+	
+</div>
+</body>
+</html>

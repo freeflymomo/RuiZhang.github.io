@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+	*{ margin: 0;position: 0;}
+	.box{ width:480px; height: 294px; background-size: 100%; margin:50px auto; position: relative; background: url(../img/img1/1.jpg); }
+	.box span{ position: absolute; transform-style: preserve-3d;transition: 1s all ease; transform:perspective(800px) rotate(0deg); background: url(../img/img1/0.jpg);}
+	</style>
+	<script>	
+		function ran(n,m){
+			return parseInt(Math.random()*(m-n)+n);
+		}
+		window.onload=function(){
+			var oBox=document.querySelector('.box');
+
+			var R=4;
+			var C=7;
+
+			for(var i=0; i<R; i++){
+				for(var j=0; j<C;j++){
+					var w=Math.ceil(oBox.offsetWidth/C);
+					var h=Math.ceil(oBox.offsetHeight/R);
+					var aSpan=document.createElement('span');
+					aSpan.style.width=w+'px';
+					aSpan.style.height=h+'px';
+					aSpan.style.left=w*j+'px';
+					aSpan.style.top=h*i+'px';
+
+					aSpan.style.backgroundPosition=-w*j+'px -'+h*i+'px';
+					oBox.appendChild(aSpan);
+				}
+			};
+
+			var aSpan=oBox.children;
+			var iNow=0;
+			var bSys=true;
+			oBox.onclick=function(){
+				iNow++;
+				for(var i=0; i<aSpan.length;i++){
+					var x=Math.ceil(aSpan[i].offsetLeft+aSpan[i].offsetWidth/2-oBox.offsetWidth/2);
+					var y=Math.ceil(aSpan[i].offsetTop+aSpan[i].offsetHeight/2-oBox.offsetHeight/2);
+					aSpan[i].style.transition='1s all ease';
+					aSpan[i].style.transform='perspective(800px) scale(1.5)  translate('+x+'px,'+y+'px) rotateX('+ran(0,360)+'deg) rotateY('+ran(0,360)+'deg)';
+					aSpan[i].style.opacity=0;
+				};
+			};
+
+			aSpan[0].addEventListener('transitionend',function(){
+				for(var i=0; i<aSpan.length;i++){
+					aSpan[i].style.transition='none';
+					aSpan[i].style.transform='';
+					aSpan[i].style.opacity=1;
+					aSpan[i].style.backgroundImage='url(../img/img1/'+iNow%8+'.jpg)';
+				}
+				oBox.style.backgroundImage='url(../img/img1/'+(iNow+1)%8+'.jpg)';
+			},false);
+		};
+	</script>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

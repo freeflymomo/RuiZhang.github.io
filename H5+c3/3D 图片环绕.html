@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+	*{ margin: 0;padding: 0; list-style: none;}
+	body{ background: #000; overflow: hidden;}
+	.list{ width: 140px; height: 200px;position: absolute; left: 50%; top: 30%; margin-top: -100px; margin-left: -30px; transform-style: preserve-3d;transform:perspective(800px) translateZ(-400px) rotateX(-15deg);} 
+	.list li{ width: 140px; height: 200px; background-size: 100% 100%; -webkit-box-reflect: below 10px -webkit-linear-gradient(rgba(0,0,0,0) 40%,rgba(0,0,0,0.5)); box-shadow: 0 0 20px #FFF; position: absolute; left: 0; top: 0; }
+	</style>
+	<script>
+		window.onload=function(){
+			var oList=document.querySelector('.list');
+			var N=11;
+			for(var i=0; i<N; i++){
+				var aLi=document.createElement('li');
+				aLi.style.backgroundImage='url(../img/img1/'+i+'.jpg)';
+				oList.appendChild(aLi);
+
+				aLi.style.transition='1s all ease '+100*(N-i)+'ms';
+
+				(function(oLi,i){
+					setTimeout(function(){
+					oLi.style.transform='perspective(800px) rotateY('+360/N*i+'deg) translateZ(300px)';	
+				},0)})(aLi,i);
+			};
+			var aLi=oList.children;
+			var timer=null;
+			var y=0;
+			var x=-15;
+
+			var speedX=0;
+			var speedY=0;
+			var lastX=0;
+			var lastY=0;
+
+			aLi[0].addEventListener('transitionend',function(){
+				change();
+			},false);
+			document.onmousedown=function(ev){
+				var disX=ev.clientX-y;
+				var disY=ev.clientY-x;
+				clearInterval(timer);
+				for(var i=0; i<aLi.length;i++){
+					aLi[i].style.transition='none';
+				}
+				document.onmousemove=function(ev){
+					y=ev.clientX-disX;
+					x=ev.clientY-disY;
+					change(y/3);
+
+					speedX=ev.clientX-lastX;
+					speedY=ev.clientY-lastY;
+
+					lastX=ev.clientX;
+					lastY=ev.clientY;
+
+					oList.style.transform='perspective(800px) translateZ(-400px) rotateX('+(-x/3)+'deg)';
+				};
+				document.onmouseup=function(){
+					document.onmousemove=document.onmouseup=null;
+
+					timer=setInterval(function(){
+						speedX*=0.95;
+						speedY*=0.95;
+						y+=speedX;
+						x+=speedY;
+						change(y/3);
+						oList.style.transform='perspective(800px) translateZ(-400px) rotateX('+(-x/3)+'deg)';
+					},30)
+
+				};
+				return false;
+			}
+
+			function change(y){
+				for(var i=0; i<aLi.length; i++){
+					aLi[i].style.transform='perspective(800px) rotateY('+(360/N*i+y)+'deg) translateZ(300px)';
+
+					var scale=Math.abs(Math.abs((360/N*i+y)%360)-180)/180;
+					scale<0.3&&(scale=0.3)
+					
+					aLi[i].style.opacity=scale;
+				}
+			}
+		};
+	</script>
+</head>
+<body>
+	<ul class="list">
+		<!-- <li></li> -->
+	</ul>
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<title></title>
+<style>
+*{ margin: 0; padding: 0 }
+li{ list-style: none; }
+img{ border:none; display: block; }
+input{ border:none; outline:none;}
+a{ text-decoration: none; }
+body{background: #f5f5f5;}
+.fl{ float: left; }
+.fr{ float: right; }
+.container{ max-width: 640px; min-width: 320px; margin:0 auto; }
+.clearfix:after{ content:""; display: block; clear: both; };
+.header{ width: 100%; height: 30px;  position: relative;}
+.header i{ width: 40px; height: 30px; background: url("img/tel.yidong.png") no-repeat 0 0 ;  position: absolute;  top: 0; left: 0 ;}
+.header b{ width: 40px; height: 40px; background: url("img/fenlei.png") no-repeat 0 0; position: absolute; top: 0; right: 0; }
+.header .sousuo { padding: 0 40px; }
+.header .sousuo em{ width: 18px; height: 16px; background: url("img/fangda.png") no-repeat 0 0; position: absolute; top: 8px; right: 45px; }
+.header .sousuo_in{ width: 100%; height: 30px; background: #ebebeb;  border-radius: 6px; box-sizing: border-box;  padding-left: 5px;}
+.nav{ width: 100%; background: #fff;margin-top: 9px; padding: 4px; box-sizing: border-box; }
+.nav img{ width: 100%;}
+.nav .list{ width: 100%; }
+.nav .list ul{ overflow:  hidden;  }
+.nav .list li { float: left; width: 25%;  position: relative;  text-align: center;  }
+.nav .list li i{ width: 24px; height: 24px; background:url("img/chongzhi.png") no-repeat 0 0; display: block;  margin: 12px auto 1px;}
+.nav .list li b{ width: 1px; height: 28px; background: #dadada;  position: absolute;right: 0px; top: 17px;}
+.nav .list li a{ display:block; }
+.goods{ width: 100%; background: #fff;}
+.goods .title{  margin-top: 11px;  height: 32px; line-height: 32px;}
+.goods .title i{ width: 3px; height: 12px; background: #d8505c; float: left;  margin:9px 7px 0 7px;}
+.goods .title h2{ float: left; font-size: 14px; color: #7f7f7f;  line-height: 32px;}
+.goods .title .time{ float: left; margin: 8px 0 0 8px; }
+.goods .time span{ float: left;width: 15px; height: 15px; background: #5d5d5d; text-align: center; line-height: 15px; color: #fff;  margin-right: 2px; }
+.goods .time b{ float: left; height: 15px; line-height: 15px; margin-right: 2px; }
+.goods_con{ width: 100%; border-top:1px solid #dadada; }
+.goods_con li{ width: 33%;  float: left;}
+.goods_con li img{ width: 100%; }
+.goods_con li:nth-child(2){ border:solid #dadada;  border-width: 0 1px; padding-bottom: 9px;}
+.goods_con dl{}
+.goods_con dt{color: #d8505c; text-align: center;}
+.goods_con dd{ width: 100%; }
+.goods_con dd span{ width:58.8%;  height: 15px; background:#d8505c;  text-align: center; line-height: 15px; color: #fff; display: block; margin: 0 auto; }
+.hanner_con{ width: 100%; padding: 7px 5px; box-sizing: border-box;}
+.hanner_con img{ width: 100%; }
+
+.czg{ width: 100%;  }
+.czg_left{ float: left; width: 50%; border-right: 1px solid #dadada; box-sizing: border-box;}
+.czg_left img{ width: 100%; }
+.czg_right{ float: left; width: 50%;}
+.czg_right img{ width: 100%; }
+.czg_right .two:last-child{ border-top: 1px solid #dadada; }
+.rm_right{ border-left: 1px solid #dadada; border-right: none; }
+.right{ border-right: none; }
+
+.zhuti_bot{ width: 100%; background: #fff;padding-left: 8px; box-sizing: border-box;}
+.zhuti_bot li{float: left; margin-bottom: 8px; border-right: 8px solid #fff; box-sizing: border-box;}
+.zhuti_bot li img{ width: 100%; }
+
+.footer {width: 640px;height: 140px;background: #fff; margin-top: 12px;}
+.footer div.footer_top { height: 34px;border-bottom: 1px solid #e5e5e5; line-height: 34px;}
+.footer div.footer_top a {margin-left: 6px; margin-right: 6px;}
+.footer p { width: 640px;text-align: center;margin-top: 15px;}
+.footer p a { margin: 0 10px;}
+.footer a{color: #666;}
+</style>
+</head>
+<body>
+<div class="container">
+	<div class="header">
+		<i></i>
+		<div class="sousuo">
+			<input type="text" name="" value="" class="sousuo_in">
+			<em></em>
+		</div>
+		<b></b>
+	</div>
+	<div class="nav">
+		<img src="img/nav.png" />
+		<div class="list">
+			<ul>
+				<li>
+					<i></i><a href="#">购物车</a><b></b>
+				</li>
+				<li>
+					<i></i><a href="#">充值</a><b></b>
+				</li>
+				<li>
+					<i></i><a href="#">机票</a><b></b>
+				</li>
+				<li>
+					<i></i><a href="#">我的</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="goods">
+		<div class="title clearfix">
+			<i></i>
+			<h2>掌上秒杀</h2>
+			<div class="time clearfix">
+				<span>0</span>
+				<span>2</span>
+				<b>:</b>
+				<span>4</span>
+				<span>3</span>
+				<b>:</b>
+				<span>2</span>
+				<span>3</span>
+			</div>
+		</div>
+		<div class="goods_con">
+			<ul class="clearfix">
+				<li>
+					<a href="javascript:;"><img src="img/goos.png" /></a>
+					<dl>
+						<dt>￥9.90</dt>
+						<dd><span>3.3折</span></dd>
+					</dl>
+				</li>
+				<li>
+					<a href="javascript:;"><img src="img/goos1.png" /></a>
+					<dl>
+						<dt>￥9.90</dt>
+						<dd><span>3.3折</span></dd>
+					</dl>
+				</li>
+				<li>
+					<a href="javascript:;"><img src="img/goos2.png" /></a>
+					<dl>
+						<dt>￥9.90</dt>
+						<dd><span>3.3折</span></dd>
+					</dl>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="goods">
+		<div class="title clearfix">
+			<i></i>
+			<h2>麦当劳双省活动</h2>
+		</div>
+		<div class="hanner_con">
+			<img src="img/mai.png" />
+		</div>
+	</div>
+
+	<div class="goods czg">
+		<div class="title clearfix">
+			<i></i>
+			<h2>超值购</h2>
+		</div>
+		<div class="czg_bot clearfix">
+			<div class="czg_left">
+				<a href="#">
+					<img src="img/czg_yi.png" />
+				</a>
+			</div>
+			<div class="czg_right">
+				<div class="two">
+					<a href="#">
+						<img src="img/czg_yi1.png" />
+					</a>
+				</div>
+				<div class="two">
+					<a href="#">
+						<img src="img/czg_yi2.png" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="goods">
+		<div class="title clearfix">
+			<i></i>
+			<h2>闪购早市</h2>
+		</div>
+		<div class="hanner_con">
+			<img src="img/zaoshi.png" />
+		</div>
+	</div>
+
+	<div class="goods czg">
+		<div class="title clearfix">
+			<i></i>
+			<h2>热门活动</h2>
+		</div>
+		<div class="czg_bot clearfix">
+			<div class="czg_right">
+				<div class="two">
+					<a href="#">
+						<img src="img/czg_yi1.png" />
+					</a>
+				</div>
+				<div class="two">
+					<a href="#">
+						<img src="img/czg_yi2.png" />
+					</a>
+				</div>
+			</div>
+			<div class="czg_left right">
+				<a href="#">
+					<img src="img/czg_yi.png" />
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="goods czg">
+		<div class="title clearfix">
+			<i></i>
+			<h2>有利可图</h2>
+		</div>
+		<div class="czg_bot clearfix">
+			<div class="czg_left">
+				<a href="#">
+					<img src="img/czg_yi.png" />
+				</a>
+			</div>
+			<div class="czg_right">
+				<div class="two">
+					<a href="#">
+						<img src="img/czg_yi1.png" />
+					</a>
+				</div>
+				<div class="two">
+					<a href="#">
+						<img src="img/czg_yi2.png" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="goods czg">
+		<div class="title clearfix">
+			<i></i>
+			<h2>特色市场</h2>
+		</div>
+		<div class="czg_bot clearfix">
+			<div class="czg_right">
+				<div class="two">
+					<a href="#">
+						<img src="img/czg_yi1.png" />
+					</a>
+				</div>
+				<div class="two">
+					<a href="#">
+						<img src="img/czg_yi2.png" />
+					</a>
+				</div>
+			</div>
+			<div class="czg_left right">
+				<a href="#">
+					<img src="img/czg_yi.png" />
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="goods czg">
+		<div class="title clearfix">
+			<i></i>
+			<h2>品牌街</h2>
+		</div>
+		<div class="czg_bot clearfix">
+			<div class="czg_left">
+				<a href="#">
+					<img src="img/czg_yi.png" />
+				</a>
+			</div>
+			<div class="czg_right">
+				<div class="two">
+					<a href="#">
+						<img src="img/czg_yi1.png" />
+					</a>
+				</div>
+				<div class="two">
+					<a href="#">
+						<img src="img/czg_yi2.png" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="goods czg">
+		<div class="title clearfix">
+			<i></i>
+			<h2>金融街 包赚翻</h2>
+		</div>
+		<div class="czg_bot clearfix">
+			<div class="czg_right">
+				<div class="two">
+					<a href="#">
+						<img src="img/czg_yi1.png" />
+					</a>
+				</div>
+				<div class="two">
+					<a href="#">
+						<img src="img/czg_yi2.png" />
+					</a>
+				</div>
+			</div>
+			<div class="czg_left right">
+				<a href="#">
+					<img src="img/czg_yi.png" />
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="zhuti goods">
+		<div class="title clearfix">
+			<i></i>
+			<h2>主题馆(迎春大促)</h2>
+		</div>
+		<div class="zhuti_bot">
+			<ul class="clearfix">
+				<li>
+					<a href="#">
+						<img src="img/zhuti1.png" />
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/zhuti1.png" />
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/zhuti1.png" />
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/zhuti1.png" />
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/zhuti1.png" />
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/zhuti1.png" />
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/zhuti1.png" />
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/zhuti1.png" />
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/zhuti1.png" />
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/zhuti1.png" />
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/zhuti1.png" />
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/zhuti1.png" />
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="footer w">
+	<div class="footer_top clearfix">
+		<a href="#" class="fl">登录 | 注册</a>
+		<a href="#" class="fr">反馈 | 回到顶部</a>
+	</div>
+	<p>
+		<a href="#">标准版</a>
+		<a href="#">电脑版</a>
+		<a href="#">触屏版</a>
+	</p>
+	<p>客户端</p>
+	<p>Copyright 2012-2015 京东JD.com 版权所有</p>
+</div>
+</div>
+</body>
+</html>
